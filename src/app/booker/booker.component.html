@@ -1,0 +1,20 @@
+<div id="user_container">
+    <div id="user_container_div">Building: {{this.building.name}}</div>
+    <div id="user_container_div">Department: 
+        <select [(ngModel)]="this.department">
+            <option *ngFor="let department of this.building.departments" [ngValue]="department">
+                {{department.number}}
+            </option>
+        </select>
+    </div>
+    <div id="user_container_div">Space: 
+        <select [(ngModel)]="this.space">
+            <option *ngFor="let space of this.building.spaces" [ngValue]="space">
+                {{space.name}}
+            </option>
+        </select>
+    </div>
+</div>
+<my-date-picker [options]="myDatePickerOptions"
+                (dateChanged)="onDateChanged($event)"></my-date-picker>
+<button value="Book Date" (click)="onClick($event)">Book Date</button>
